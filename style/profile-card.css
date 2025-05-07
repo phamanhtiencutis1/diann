@@ -1,0 +1,255 @@
+.profile-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  padding: 30px;
+  border-radius: 20px;
+  z-index: 20;
+  overflow: hidden;
+  position: relative;
+  background: rgba(0, 0, 0, 0.1); /* Màu nền trong suốt, dễ nhìn hơn */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1); /* Background tối, trong suốt */
+  backdrop-filter: blur(5px); /* Mờ nền phía sau */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  z-index: -1; /* Đảm bảo lớp nền mờ phía sau */
+  opacity: 0.95; /* Độ trong suốt */
+}
+
+.content-layer {
+  position: relative; /* Đảm bảo các phần tử con không bị ảnh hưởng */
+  z-index: 10; /* Đảm bảo các phần tử nội dung nổi lên */
+  color: white;
+  text-align: center;
+}
+
+.profile-card img.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.profile-card img.avatar:hover {
+  border: 3px solid #ffd700; /* Hiệu ứng viền màu vàng khi hover */
+  transform: scale(1.05);
+}
+
+.profile-card h2 {
+  font-size: 1.8em;
+  margin: 5;
+  background: linear-gradient(to right, #555555, #ffffff); /* Trái sáng, phải tối */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  animation: slideInGlow 2s ease-out forwards;
+  opacity: 0;
+}
+
+.profile-card .socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 0 12px; /* Tăng khoảng cách ngang */
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-card .socials a:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 6px white;
+  color: #ffd700; /* Chuyển màu khi hover */
+}
+
+.profile-card .socials .social-icon {
+  display: inline-block;
+}
+
+/* Thêm FontAwesome để sử dụng các icon mạng xã hội */
+.profile-card .socials a i {
+  font-size: 2em;
+  color: white;
+}
+
+@keyframes slideInGlow {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+    text-shadow: none;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 
+                 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.profile-card .socials a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px white;
+}
+
+.profile-card .socials a i {
+  font-size: 1em !important; /* Giảm size icon */
+}
+
+/* Giảm kích thước container icon */
+.profile-card .socials a {
+  width: 28px;
+  height: 28px;
+  margin: 0 6px;
+  font-size: 1em;
+}
+
+/* Discord Status Box */
+.discord-box {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 10px 15px;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Avatar Discord bên trái */
+.discord-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Text Discord */
+.discord-texts {
+  flex: 1;
+  color: white;
+  font-size: 0.9em;
+  text-align: left;
+}
+
+.discord-name-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+#discord-username-mini {
+  font-weight: bold;
+  font-size: 1em;
+}
+
+#discord-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Hoạt động Discord */
+.discord-activity-mini {
+  font-size: 0.8em;
+  color: #ccc;
+}
+
+/* Discord Badges */
+.discord-badges {
+  display: flex;
+  gap: 6px;
+  margin-top: 20px;
+  justify-content: center; /* Căn giữa các badge */
+  flex-wrap: wrap; /* Cho phép các badge xuống dòng nếu không đủ không gian */
+  padding: 5px 0; /* Tạo không gian trên và dưới */
+}
+
+.discord-badge {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  vertical-align: middle;
+}
+
+.discord-badge:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Hiệu ứng Glow cho chữ D I A N N */
+.glow-text {
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #b66cff, 0 0 20px #b66cff;
+  font-weight: bold;
+  letter-spacing: 2px;
+  animation: pulseGlow 2s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #b66cff, 0 0 20px #b66cff;
+  }
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #d48bff, 0 0 30px #d48bff;
+  }
+}
+/* Cải thiện giao diện của nút Play và Skip */
+button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2em;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.play-button {
+  color: #ffd700; /* Màu vàng cho nút Play */
+}
+
+.skip-button {
+  color: #66ccff; /* Màu xanh cho nút Skip */
+}
+

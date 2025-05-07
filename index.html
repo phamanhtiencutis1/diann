@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Profile</title>
+  <link rel="stylesheet" href="style/background.css">
+  <link rel="stylesheet" href="style/profile-card.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* CSS for rotating disk effect */
+    .music-player-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .music-player {
+      position: relative;
+      width: 120px; /* Small disk size */
+      height: 120px;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      overflow: hidden;
+      animation: rotateDisk 30s linear infinite;
+    }
+
+    .music-player iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border: none;
+    }
+
+    /* Animating the disk */
+    @keyframes rotateDisk {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Styling for song name */
+    .song-info {
+      position: absolute;
+      bottom: -30px; /* Adjusted to sit under the disk */
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 16px;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="snow"></canvas>
+
+  <div id="enterText">Piu</div>
+
+  <div id="videoSection">
+    <!-- Tắt âm thanh của video -->
+    <video autoplay muted loop>
+      <source src="assets/your-video.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <audio id="bgMusic" src="assets/background-music.mp3" loop></audio>
+
+  <div class="profile-card">
+    <div class="background-layer"></div>
+    <div class="content-layer">
+      <img src="assets/your-avatar.jpg" class="avatar" alt="Avatar">
+      <h2 class="glow-text">D I A N N</h2>
+
+      <div class="socials">
+        <a href="https://discord.com/users/560482241130528778" target="_blank" aria-label="Discord">
+          <i class="fa-brands fa-discord"></i>
+        </a>
+        <a href="https://www.facebook.com/callmeDiann" target="_blank" aria-label="Facebook">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </div>
+
+      <!-- Discord Live Status Box -->
+      <div class="discord-box">
+        <img id="discord-avatar-mini" class="discord-avatar" src="" alt="Discord Avatar Mini">
+        <div class="discord-texts">
+          <div class="discord-name-status">
+            <span id="discord-username-mini" class="glow-text">D I A N N</span>
+            <div class="discord-badges-inline">
+              <img src="https://byvn.net/wSYm" alt="Silver Badge" class="discord-badge" />
+              <img src="https://byvn.net/7i8s" alt="Hyper Squad" class="discord-badge" />
+              <img src="https://byvn.net/b541" alt="Nitro" class="discord-badge" />
+              <img src="https://byvn.net/AWtG" alt="Tag #" class="discord-badge" />
+              <img src="https://byvn.net/IRCg" alt="Quest" class="discord-badge" />
+            </div>
+          </div>
+          <div id="discord-activity-mini" class="discord-activity-mini">Đang tải hoạt động...</div>
+        </div>
+      </div>
+
+      
+  </div> <!-- end .profile-card -->
+
+  <script src="script/background.js"></script>
+  <script src="script/enter.js"></script>
+  <script src="script/profile-card.js"></script>
+</body>
+</html>
